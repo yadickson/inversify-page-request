@@ -24,7 +24,7 @@
         "test:coverage": "nyc mocha --config .mocharc.json",
         "test:mutation": "stryker run stryker.conf.json",
         "update": "updates --update --minor",
-        "clean": "rimraf ./dist ./reports",
+        "clean": "rimraf ./dist ./reports ./coverage",
         "build": "npm run clean && tsc -p tsconfig.build.json && tsc-alias",
         "lint": "eslint src test",
         "lint:fix": "npm run lint -- --fix",
