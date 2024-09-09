@@ -5,7 +5,7 @@
     "reporter": "spec",
     "reporterEnabled": "spec, mocha-junit-reporter",
     "mochaJunitReporterReporterOptions": {
-	    "mochaFile": "./reports/xunit.xml"
+	    "mochaFile": "./test-results.xml"
     },
     "timeout": 2000,
     "recursive": true,

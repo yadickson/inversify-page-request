@@ -43,7 +43,10 @@ jobs:
 
     - name: Coverage Badge
       if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
-      uses: we-cli/coverage-badge-action@main
+      uses: gaelgirodon/ci-badges-action@v1
+      with:
+        gist-id: 2edc636fc2ff6aff4b056d455f3290be
+        token: ${{ secrets.GIST_TOKEN }}
 
     - name: Mutation Test
       run: |

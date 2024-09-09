@@ -132,3 +132,6 @@ dist
 reports/
 dependency-check-bin/
 package-lock.json
+
+test-results.xml
+coverage/

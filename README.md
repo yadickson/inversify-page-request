@@ -1,6 +1,10 @@
 # inversify-page-request
 
-[![cov](https://yadickson.github.io/infersify-page-request/badges/coverage.svg)](https://github.com/yadickson/infersify-page-request/actions)
+![version](https://img.shields.io/github/package-json/v/yadickson/inversify-page-request?style=flat-square)
+![license](https://img.shields.io/github/license/yadickson/inversify-page-request?style=flat-square)
+![build](https://img.shields.io/github/actions/workflow/status/yadickson/inversify-page-request/npm-build.yml?branch=main&style=flat-square)
+![tests](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fgist.githubusercontent.com%2Fyadickson%2F2edc636fc2ff6aff4b056d455f3290be%2Fraw%2Finversify-page-request-junit-tests.json)
+![coverage](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fgist.githubusercontent.com%2Fyadickson%2F2edc636fc2ff6aff4b056d455f3290be%2Fraw%2Finversify-page-request-cobertura-coverage.json)
 
 inversify page request utility
 
