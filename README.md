@@ -1,5 +1,7 @@
 # inversify-page-request
 
+[![cov](https://yadickson.github.io/infersify-page-request/badges/coverage.svg)](https://github.com/yadickson/infersify-page-request/actions)
+
 inversify page request utility
 
 ## install dependencies
