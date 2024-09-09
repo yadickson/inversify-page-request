@@ -1,0 +1,147 @@
+{
+    "root": true,
+    "env": {
+      "commonjs": true,
+      "browser": false,
+      "es6": true,
+      "node": true,
+      "mocha": true
+    },
+    "extends": [
+      "airbnb-base",
+      "eslint:recommended",
+      "plugin:json/recommended",
+      "plugin:security/recommended",
+      "plugin:anti-trojan-source/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "plugin:import/recommended",
+      "plugin:import/typescript",
+      "plugin:unicorn/recommended",
+      "plugin:sonarjs/recommended",
+      "plugin:promise/recommended",
+      "plugin:chai-expect/recommended",
+      "prettier",
+      "plugin:mocha/recommended",
+      "plugin:mocha-cleanup/recommended"
+    ],
+    "plugins": [
+      "no-relative-import-paths",
+      "@typescript-eslint",
+      "import",
+      "spellcheck",
+      "no-secrets",
+      "redos"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "rules": {
+      "redos/no-vulnerable": "error",
+      "no-secrets/no-secrets": ["error", { "ignoreContent": ["Interface", "Schema", "Scheme", "Mapper", "Repository", "Gateway", "Validator", "UseCase", "Service", "Controller"] }],
+      "mocha/no-mocha-arrows": 0,
+      "mocha-cleanup/complexity-it": "off",
+      "mocha-cleanup/no-outside-declaration": 0,
+      "mocha-cleanup/asserts-limit": ["warn", { "assertsLimit": 10 }],
+      "no-useless-return": "error",
+      "no-console": 2,
+      "no-useless-constructor": 0,
+      "import/extensions": 0,
+      "import/prefer-default-export": 0,
+      "unicorn/no-array-for-each": 0,
+      "unicorn/no-useless-undefined": 0,
+      "unicorn/no-null": 0,
+      "unicorn/prefer-node-protocol": 0,
+      "unicorn/prefer-export-from": 0,
+      "class-methods-use-this": 0,
+      "no-shadow": "off",
+      "sonarjs/prefer-immediate-return": "error",
+      "@typescript-eslint/no-shadow": "error",
+      "@typescript-eslint/unbound-method": 0,
+      "indent": ["error", 2, { "SwitchCase": 1 }],
+      "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
+      "max-len": ["error", 150, 2],
+      "import/order": [
+        1,
+        {
+          "groups": ["external", "builtin", "internal", "sibling", "parent", "index"],
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          }
+        }
+      ],
+      "no-relative-import-paths/no-relative-import-paths": [
+        "warn",
+        { "allowSameFolder": false, "rootDir": "src" }
+      ],
+      "spellcheck/spell-checker": ["error",
+        {
+          "lang": "en_US",
+          "comments": false,
+          "strings": true,
+          "identifiers": true,
+          "skipWords": [
+            "monorepo",
+            "clazz",
+            "oui",
+            "si",
+            "dto",
+            "xml",
+            "sinon",
+            "xss",
+            "cors",
+            "javascript",
+            "inversify",
+            "tls",
+            "supertest",
+            "chai",
+            "redis",
+            "unix",
+            "linux",
+            "axios",
+            "winston",
+            "charset",
+            "utf8",
+            "utf",
+            "symlink",
+            "datetime",
+            "nullable",
+            "cron",
+            "ttl",
+            "fs",
+            "os",
+            "vpn",
+            "kafka",
+            "ssl",
+            "blowfish",
+            "jwt",
+            "ecb",
+            "cbc"
+          ]
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": {},
+        "alias": {
+          "extensions": [
+            ".ts"
+          ]
+        }
+      }
+    },
+    "ignorePatterns": [
+      "node_modules/**",
+      "dist/**",
+      "reports/**",
+      "logs/**"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
+  }
