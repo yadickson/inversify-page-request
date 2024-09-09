@@ -26,6 +26,7 @@ jobs:
           name: Mocha Tests
           path: test-results.xml
           reporter: jest-junit
+          token: ${{ secrets.GIT_TOKEN }}
 
       - run: npm run test:coverage
 
