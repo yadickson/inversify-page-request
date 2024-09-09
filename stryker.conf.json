@@ -1,0 +1,15 @@
+{
+    "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+    "testRunner": "mocha",
+    "coverageAnalysis": "perTest",
+    "reporters": ["clear-text", "progress", "dots", "html", "json", "event-recorder"],
+    "mutate": [ 
+      "src/*.ts"
+    ],
+    "mochaOptions": {
+      "config": ".mocharc.json"
+    },
+    "thresholds": { "high": 100, "low": 100, "break": 100 },
+    "timeoutMs": 60000,
+    "concurrency": 1
+  }
