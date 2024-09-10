@@ -25,28 +25,32 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Build
-    - run: |
+      run: |
         npm install
         npm run build
 
     - name: Lint
-    - run: npm run lint
+      run: npm run lint
 
     - name: Test
-    - run: npm t
-    - uses: actions/upload-artifact@v4
+      run: npm t
+
+    - name: Upload test-results-${{ matrix.node-version }}
+      uses: actions/upload-artifact@v4
       if: success() || failure()
       with:
         name: test-results-${{ matrix.node-version }}
         path: test-results.xml
 
     - name: Coverage
-    - run: npm run test:coverage
-    - uses: actions/upload-artifact@v4
+      run: npm run test:coverage
+
+    - name: Upload coverage-results-${{ matrix.node-version }}
+      uses: actions/upload-artifact@v4
       if: success() || failure()
       with:
         name: coverage-results-${{ matrix.node-version }}
         path: ./coverage/lcov.info
 
     - name: Mutation Test
-    - run: npm run test:mutation
+      run: npm run test:mutation

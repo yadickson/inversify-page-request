@@ -18,7 +18,8 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-    - uses: dorny/test-reporter@v1
+    - name: Test Report
+      uses: dorny/test-reporter@v1
       with:
         artifact: test-results-20.x
         name: Mocha Tests
@@ -26,12 +27,9 @@ jobs:
         reporter: jest-junit
         token: ${{ secrets.GIT_TOKEN }}
 
-      - run: npm run test:coverage
-
-      - name: Coverage Report
-        uses: romeovs/lcov-reporter-action@v0.3.1
-        if: success() || failure()
-        with:
-          artifact: coverage-results-20.x
-          lcov-file: ./coverage/lcov.info
-          token: ${{ secrets.GIT_TOKEN }}
+    - name: Coverage Report
+      uses: romeovs/lcov-reporter-action@v0.3.1
+      with:
+        artifact: coverage-results-20.x
+        lcov-file: ./coverage/lcov.info
+        token: ${{ secrets.GIT_TOKEN }}
