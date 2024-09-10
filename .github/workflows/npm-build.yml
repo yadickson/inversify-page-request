@@ -35,22 +35,29 @@ jobs:
     - name: Test
       run: npm t
 
-    - name: Upload test-results-${{ matrix.node-version }}
-      uses: actions/upload-artifact@v4
-      if: success() || failure()
-      with:
-        name: test-results-${{ matrix.node-version }}
-        path: test-results.xml
+    # - name: Upload test-results-${{ matrix.node-version }}
+    #   uses: actions/upload-artifact@v4
+    #   if: success() || failure()
+    #   with:
+    #     name: test-results-${{ matrix.node-version }}
+    #     path: test-results.xml
 
     - name: Coverage
       run: npm run test:coverage
 
-    - name: Upload coverage-results-${{ matrix.node-version }}
-      uses: actions/upload-artifact@v4
-      if: success() || failure()
-      with:
-        name: coverage-results-${{ matrix.node-version }}
-        path: ./coverage/lcov.info
+    # - name: Upload coverage-results-${{ matrix.node-version }}
+    #   uses: actions/upload-artifact@v4
+    #   if: success() || failure()
+    #   with:
+    #     name: coverage-results-${{ matrix.node-version }}
+    #     path: ./coverage/lcov.info
 
     - name: Mutation Test
       run: npm run test:mutation
+
+    # - name: Upload mutation-results-${{ matrix.node-version }}
+    #   uses: actions/upload-artifact@v4
+    #   if: success() || failure()
+    #   with:
+    #     name: mutation-results-${{ matrix.node-version }}
+    #     path: ./reports/mutation/mutation.json
