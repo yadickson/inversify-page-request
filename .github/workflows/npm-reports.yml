@@ -4,29 +4,27 @@
 name: NodeJS Reports
 
 on:
-  push:
-    branches:
-      - "main"
+  workflow_run:
+    workflows: ['NodeJS Build Process']
+    types:
+      - completed
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
 
 jobs:
-  build:
+  report:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm i
-      - run: npm test
-
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Mocha Tests
-          path: test-results.xml
-          reporter: jest-junit
-          token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: dorny/test-reporter@v1
+      with:
+        artifact: test-results-20.x
+        name: Mocha Tests
+        path: test-results.xml
+        reporter: jest-junit
+        token: ${{ secrets.GIT_TOKEN }}
 
       - run: npm run test:coverage
 
@@ -34,4 +32,6 @@ jobs:
         uses: romeovs/lcov-reporter-action@v0.3.1
         if: success() || failure()
         with:
+          artifact: coverage-results-20.x
           lcov-file: ./coverage/lcov.info
+          token: ${{ secrets.GIT_TOKEN }}
